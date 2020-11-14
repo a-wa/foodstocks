@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
+  
+  before_action :require_user_logged_in, only: [:index, :show]
+  
   def index
-   # @users = User.find_by(family_id: current_user.family_id)
+ #   @users = User.where(family_id: current_user.family_id)
   end
 
   def show
     @user = User.find(params[:id])
+    @users = User.where(family_id: current_user.family_id)
   end
 
   def new

@@ -10,6 +10,11 @@
     </div>
   </aside>
   <div class="col-sm-8">
+    <% unless current_user.family_id %>
+      <%= render 'families/new_family', user: @user %>
+    <% else %>
+      <%= render 'index', users: @users %>
+    <% end %>
     
   </div>
 </div>
