@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_001213) do
+ActiveRecord::Schema.define(version: 2020_11_14_015511) do
 
   create_table "families", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,4 +18,16 @@ ActiveRecord::Schema.define(version: 2020_11_14_001213) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.bigint "family_id"
+    t.string "password_digest"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_users_on_family_id"
+  end
+
+  add_foreign_key "users", "families"
 end
