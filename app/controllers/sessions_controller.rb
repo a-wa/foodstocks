@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
     if login(email, password)
       flash[:success] = 'ログインに成功しました。'
         unless current_user.family_id
-          redirect_to @user
+          redirect_to new_family_path
         else
-          redirect_to root_path
+          redirect_to @user
         end
     else
       flash.now[:danger] = 'ログインに失敗しました。'

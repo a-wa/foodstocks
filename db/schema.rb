@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_015511) do
+ActiveRecord::Schema.define(version: 2020_11_14_214236) do
 
   create_table "families", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "guest_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guest_id"], name: "index_requests_on_guest_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -29,5 +39,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_015511) do
     t.index ["family_id"], name: "index_users_on_family_id"
   end
 
+  add_foreign_key "requests", "users"
+  add_foreign_key "requests", "users", column: "guest_id"
   add_foreign_key "users", "families"
 end
