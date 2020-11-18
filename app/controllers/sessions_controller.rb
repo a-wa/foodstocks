@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         unless current_user.family_id
           redirect_to new_family_path
         else
-          redirect_to @user
+          redirect_to root_path
         end
     else
       flash.now[:danger] = 'ログインに失敗しました。'

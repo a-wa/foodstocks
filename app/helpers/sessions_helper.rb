@@ -6,5 +6,9 @@ module SessionsHelper
   def logged_in?
     !!current_user
   end
+  
+  def current_family
+    @current_family ||= Family.find_by(id: current_user.family_id)
+  end
     
 end
