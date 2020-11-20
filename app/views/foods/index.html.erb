@@ -4,7 +4,7 @@
       <tr>
         <th>食品名</th>
         <th>保存場所</th>
-        <th>数量</th>
+     <!--   <th>数量</th> -->
         <th>購入日</th>
         <th></th>
         <th></th>
@@ -15,13 +15,38 @@
         <tr>
           <td style="width:25%"><%= food.name %></td>
           <td style="width:10%"><%= food.place %></td>
-          <td style="width:10%"><%= food.quantity %></td>
+       <!--   <td style="width:10%"><%#= food.quantity %></td> -->
           <td style="width:15%"><%= food.purchase_date %></td>
-          <td style="width:17%"><%= render 'edit_quantity', food: food %> </td>
+          <td style="width:17%"><%= render 'foods/edit_quantity', food: food %> </td>
           <td style="width:10%"><%= link_to "使い切る", food, method: :delete, class: 'btn btn-danger btn-sm' %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <%#= paginate microposts %>
+  
+  <aside class="col-3">
+    <%= form_with(model: @memo, local: true) do |f| %>
+      <div class="form-group">
+        <%= f.text_area :content, class: 'form-control', rows: 3 %>
+        <%#= hidden_field_tag :user_id, current_user.id %>
+        <%= f.hidden_field :family_id, value: current_family.id %>
+      </div>
+      <%= f.submit 'メモ追加', class: 'btn btn-primary btn-block' %>
+    <% end %>
+    <ul class="list-unstyled">
+      <% @memos.each do |memo| %>
+        <li class="media">
+          <img>
+          <div class="medoa-body">
+            <div>
+              <%= memo.user.name %><%= memo.created_at %>
+            </div>
+            <div>
+              <p><%= memo.content %></p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
 </div>

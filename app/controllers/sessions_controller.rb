@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     email = params[:session][:email].downcase
     password = params[:session][:password]
     if login(email, password)
-      flash[:success] = 'ログインに成功しました。'
+  #    flash[:success] = 'ログインに成功しました。'
         unless current_user.family_id
           redirect_to new_family_path
         else

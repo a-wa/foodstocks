@@ -7,12 +7,14 @@ Rails.application.routes.draw do
     delete 'logout', to: 'sessions#destroy'
     
     get 'signup', to: 'users#new'
-    resources :users, only: [:index, :show, :create]
+    resources :users, only: [:index, :show, :create, :update]
     
     resources :families, only: [:new, :create]
     resources :requests, only: [:new, :create, :update]
     
     resources :foods
+    
+    resources :memos, only: [:create, :destroy]
     
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

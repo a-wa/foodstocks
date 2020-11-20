@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_130358) do
+ActiveRecord::Schema.define(version: 2020_11_18_230644) do
 
   create_table "families", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 2020_11_17_130358) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["family_id"], name: "index_foods_on_family_id"
+  end
+
+  create_table "memos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "family_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_memos_on_family_id"
+    t.index ["user_id"], name: "index_memos_on_user_id"
   end
 
   create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -51,6 +61,8 @@ ActiveRecord::Schema.define(version: 2020_11_17_130358) do
   end
 
   add_foreign_key "foods", "families"
+  add_foreign_key "memos", "families"
+  add_foreign_key "memos", "users"
   add_foreign_key "requests", "users"
   add_foreign_key "requests", "users", column: "guest_id"
   add_foreign_key "users", "families"

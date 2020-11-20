@@ -2,7 +2,9 @@ class FoodsController < ApplicationController
    before_action :require_user_logged_in
    
   def index
-    @foods = current_family.foods.order(purchase_date: :desc)
+    @foods = current_family.foods.order(purchase_date: :asc)
+    @memos = current_family.memos.order(id: :desc)
+    @memo = current_user.memos.build
   end
 
   def new
@@ -22,8 +24,8 @@ class FoodsController < ApplicationController
 
   def update
     @food = Food.find_by(id: params[:id])
-    @food.update(quantity: params[:quantity])
-    flash[:success] = @food.name + ' は残り'# + params[:quantity] + 'です'
+    @food.update(food_params)
+    flash[:success] = @food.name + ' は残り' + @food.quantity + 'です'
     redirect_to root_path
     
   end

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
+  
+  mount_uploader :image, ImageUploader
     
   belongs_to :family, optional: true
   has_secure_password
@@ -35,6 +37,7 @@ class User < ApplicationRecord
     self.update(family_id: host.family_id)
   end
   
+  has_many :memos
   
   
 end

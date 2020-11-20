@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :require_user_logged_in, only: [:index, :show]
+  before_action :require_user_logged_in
   
   def index
   end
@@ -26,11 +26,18 @@ class UsersController < ApplicationController
     end
   end
   
+  def update
+   # @user = User.find_by(id: params[:id])
+    User.update(user_params)
+    redirect_to user_path
+  end
+    
+  
   private
   
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
   end
   
   
