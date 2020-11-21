@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :update]
   before_action :correct_user, only: [:show, :update]
+#  before_action :have_family?, only: [:show]
 
   def show
     @user = User.find(params[:id])
@@ -26,6 +27,10 @@ class UsersController < ApplicationController
     end
   end
   
+  def edit
+    @user = User.find(params[:id])
+  end
+  
   def update
     @user = current_user.update(user_params)
     redirect_to user_path
@@ -36,7 +41,7 @@ class UsersController < ApplicationController
   
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :family_id)
   end
   
   def correct_user

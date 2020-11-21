@@ -1,5 +1,7 @@
 module FamiliesHelper
     
+  # requests/_invited.html.erb で使用
+  
   def host_name(request)
     user_id = request.user_id
     user = User.find(user_id)

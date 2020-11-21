@@ -1,0 +1,23 @@
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">プロフィール画像</h4>
+      </div>
+      <div class="card-body">
+        <%= form_with(model: @user, local: true) do |f| %>
+          <% if @user.image? %>
+            <%= image_tag @user.image.url, :size => '200x200' %>
+          <% else %>
+            <%= image_tag "/assets/default.jpg", :size => '200x200' %>
+          <% end %>
+          <button type="button" class="btn">
+            <%= f.file_field :image %>
+            <%#= f.hidden_field :id, value: @user.id %>
+          </button>
+      　　<%= f.submit '更新する', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div>
+      <%= link_to "戻る", user_path %>
+    </div>

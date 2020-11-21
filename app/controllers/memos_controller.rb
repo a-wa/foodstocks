@@ -1,6 +1,7 @@
 class MemosController < ApplicationController
   before_action :require_user_logged_in
   before_action :correct_user, only: [:destroy]
+#  before_action :have_family?
   
   def create
     @memo = current_user.memos.build(memo_params)

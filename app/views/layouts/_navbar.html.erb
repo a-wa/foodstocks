@@ -10,7 +10,8 @@
         
         <% if logged_in? %>
           <% if current_user.family_id %>
-            <li class="nav-item"><%= link_to '＋食材追加', new_food_path, class: 'nav-link' %></li>
+            <li class="nav-item mr-3"><%= link_to 'トップページ',root_path, class: 'nav-link' %></li>
+            <li class="nav-item mr-3"><%= link_to '＋食材追加', new_food_path, class: 'nav-link' %></li>
           <% end %>
           
           <li class="nav-item dropdown">

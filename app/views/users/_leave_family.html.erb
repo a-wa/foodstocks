@@ -1,0 +1,8 @@
+<div class='text-center'>
+  <%= form_with(model: user, local: true) do |f| %>
+    <div class="form-group"> 
+      <%= link_to "この家族から抜ける", user, method: leave_family %>
+    </div>
+  <% end %>
+  
+</div>

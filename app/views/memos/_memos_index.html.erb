@@ -7,23 +7,18 @@
           <% else %>
             <img class = "rounded" src="/assets/default.jpg" width=50 height=50>
           <% end %>
-            <div class="medoa-body">
-              <div>
-                <%= memo.user.name %>
-                <% if current_user == memo.user %>
-                  <%= link_to "消去", memo, method: :delete %>
-                <% end %>
-              </div>
-              <div style="color:gray" >
-                <%= memo.created_at.to_s(:datetime_jp) %>
-              </div>
-              <div>
-                <%= memo.content %> 
-              </div>
-              
-              
+          <div class="media-body ml-3">
             <div>
-              
+              <%= memo.user.name %>
+              <% if current_user == memo.user %>
+                <%= link_to "消去", memo, method: :delete %>
+              <% end %>
+            </div>
+            <div style="color:gray">
+              <%= memo.created_at.to_s(:datetime_jp) %>
+            </div>
+            <div>
+              <%= memo.content %> 
             </div>
           </div>
         </li>
