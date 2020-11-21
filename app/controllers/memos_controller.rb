@@ -1,5 +1,6 @@
 class MemosController < ApplicationController
   before_action :require_user_logged_in
+  before_action :correct_user, only: [:destroy]
   
   def create
     @memo = current_user.memos.build(memo_params)
@@ -16,6 +17,8 @@ class MemosController < ApplicationController
   end
 
   def destroy
+    @memo.destroy
+    redirect_to root_path
   end
 end
 
@@ -23,4 +26,11 @@ private
 
 def memo_params
   params.require(:memo).permit(:content, :family_id, :user_id)
+end
+
+def correct_user
+  @memo = current_user.memos.find_by(id: params[:id])
+  unless @memo
+    redirect_to root_url
+  end
 end

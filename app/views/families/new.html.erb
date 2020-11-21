@@ -14,8 +14,8 @@
       <%= render 'layouts/error_messages', model: f.object %>
       
       <div class="form-group">
-        <%= f.label :name, '家族名' %>
-        <%= f.text_field :name, class: 'form-control' %>
+        <%#= f.label :name, '家族名' %>
+        <%= f.text_field :name, class: 'form-control', placeholder: '家族名'  %>
       </div>
       <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
     <% end %>

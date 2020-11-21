@@ -1,0 +1,31 @@
+
+    <ul class="list-unstyled">
+      <% memos.each do |memo| %>
+        <li class="media mt-3">
+          <% if memo.user.image? %>
+            <img class = "rounded" src="<%= memo.user.image %>" width=50 height=50>
+          <% else %>
+            <img class = "rounded" src="/assets/default.jpg" width=50 height=50>
+          <% end %>
+            <div class="medoa-body">
+              <div>
+                <%= memo.user.name %>
+                <% if current_user == memo.user %>
+                  <%= link_to "消去", memo, method: :delete %>
+                <% end %>
+              </div>
+              <div style="color:gray" >
+                <%= memo.created_at.to_s(:datetime_jp) %>
+              </div>
+              <div>
+                <%= memo.content %> 
+              </div>
+              
+              
+            <div>
+              
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>

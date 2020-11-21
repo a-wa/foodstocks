@@ -1,0 +1,10 @@
+<div class='text-center mt-5'>
+<% if requestings.any? %>
+  <p>招待中のユーザ</p>
+  <ul class="list-unstyled">
+    <% guests.each do |guest| %>
+      <li><%= guest.email %></li>
+    <% end %>
+  </ul>
+<% end %>
+</div>

@@ -2,9 +2,9 @@
   <div class="offset-3 col-6 offset-3">
     
 
-<h2>食材追加</h2>
-  <%= form_with(model: @food, local: true) do |f| %>
-    <div class="form-group row">
+  <h2>食材追加</h2>
+    <%= form_with(model: @food, local: true) do |f| %>
+      <div class="form-group row">
         <%= f.label :name, '食品名', class: 'col-3' %>
         <%= f.text_field :name, class: 'col-9 form-control' %>
       </div>
@@ -26,6 +26,7 @@
 
       <%= f.submit '追加する', class: 'btn btn-primary btn-block' %>
     <% end %>
+    <%= link_to '一覧へ戻る', root_path %>
     
-      </div> 
+  </div> 
 </div>

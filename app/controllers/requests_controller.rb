@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
   def create
     guest_user = User.find_by(email: params[:request][:email])
     current_user.invite(guest_user)
-    flash[:success] = '招待リクエストを送りました'
+    flash[:success] = guest_user.email + 'あてに　招待リクエストを送りました'
     redirect_to user_path(current_user)
   end
   
@@ -16,7 +16,7 @@ class RequestsController < ApplicationController
       redirect_to user_path(current_user)
     elsif params[:status] == '3'
       flash[:success] = 'リクエストを拒否しました'
-      render new_family_path
+      redirect_to new_family_path
     end
   end
   
