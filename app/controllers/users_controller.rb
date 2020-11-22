@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :update]
-  before_action :correct_user, only: [:show, :update]
+  before_action :correct_user, only: [:show, :update, :edit]
   before_action :have_family?, only: [:show]
 
   def show

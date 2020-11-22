@@ -3,7 +3,9 @@ class RequestsController < ApplicationController
   
   def create
     guest_user = User.find_by(email: params[:request][:email])
-    if current_user.family_id == guest_user.family_id
+    if guest_user == nil
+      flash[:danger] = '存在しないアカウントです'
+    elsif current_user.family_id == guest_user.family_id
       flash[:danger] = 'すでに同じ家族のユーザです'
     elsif
       Request.find_by(user_id: current_user.id, guest_id: guest_user.id, status: 1)

@@ -4,6 +4,7 @@
 
   <h2>食材追加</h2>
     <%= form_with(model: @food, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-group row">
         <%= f.label :name, '食品名', class: 'col-3' %>
         <%= f.text_field :name, class: 'col-9 form-control' %>
