@@ -33,6 +33,9 @@ class UsersController < ApplicationController
   
   def update
     @user = current_user.update(user_params)
+    if current_user.family_id == nil
+      flash[:success] = '家族から抜けました'
+    end
     redirect_to user_path
   end
     
