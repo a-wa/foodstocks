@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      food:
+    attributes:
+      
+     name: 食品名
+     place: 保管場所
+     quantity: 数量・単位
+     purchase_date: 購入日
