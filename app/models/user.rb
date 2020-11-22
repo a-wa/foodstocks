@@ -40,6 +40,18 @@ class User < ApplicationRecord
     self.update(family_id: host.family_id)
   end
   
+  # Users#showで使用 招待中だが未承認のユーザ
+  def inviting_users
+    requests = Request.where(user_id: self.id, status: 1)
+    guest_ids = requests.pluck(:guest_id)
+    User.where(id: guest_ids)
+  end
+  
+  
+  def requestings
+    self.requests.where(status: 1)
+  end
+  
   
   has_many :memos
   

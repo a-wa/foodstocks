@@ -5,8 +5,8 @@ module RequestsHelper
     Request.where(guest_id: current_user.id, status: 1)
   end
   
-  # 招待しているが未承認のリクエスト 
+   #招待しているが未承認のリクエスト 
 #  def requestings
  #   self.requests.find_by(status: 1)
-#  end
+ # end
 end

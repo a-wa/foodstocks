@@ -7,8 +7,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = User.where(family_id: current_user.family_id).where.not(id: current_user.id)
     @requests = Request.where(guest_id: current_user.id, status: 1)
-#    requests = Request.find_by(user_id: current_user.id, status: 1)
- #   @inviting_users = User.where(id: requests.guest_id)
+    @guests = current_user.inviting_users
   end
 
   def new
@@ -35,6 +34,8 @@ class UsersController < ApplicationController
     @user = current_user.update(user_params)
     if current_user.family_id == nil
       flash[:success] = '家族から抜けました'
+    else
+      flash[:success] = 'ユーザ情報を編集しました'     
     end
     redirect_to user_path
   end
@@ -53,5 +54,7 @@ class UsersController < ApplicationController
       redirect_to(root_path)
     end
   end
+
+  
 
 end

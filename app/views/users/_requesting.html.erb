@@ -1,9 +1,9 @@
-<div class='text-center mt-5'>
-  <% if requestings.any? %>
-    <p>招待中のユーザ</p>
+<div class='text-center'>
+  <% if current_user.requestings.any? %>
+    <div class='mt-5'>招待中のユーザ</div>
     <ul class="list-unstyled">
-      <% requestings.each do |guest| %>
-        <li><%= guest.id %></li>
+      <% guests.each do |guest| %>
+        <li><%= guest.email %></li>
       <% end %>
     </ul>
   <% end %>

@@ -3,8 +3,16 @@ class RequestsController < ApplicationController
   
   def create
     guest_user = User.find_by(email: params[:request][:email])
-    current_user.invite(guest_user)
-    flash[:success] = guest_user.email + 'あてに　招待リクエストを送りました'
+    if current_user.family_id == guest_user.family_id
+      flash[:danger] = 'すでに同じ家族のユーザです'
+    elsif
+      Request.find_by(user_id: current_user.id, guest_id: guest_user.id, status: 1)
+      flash[:danger] = '招待中のユーザです　回答をお待ちください'
+    elsif
+      current_user.invite(guest_user)
+      flash[:success] = guest_user.email + 'あてに　招待リクエストを送りました'
+    end
+    
     redirect_to user_path(current_user)
   end
   
