@@ -1,6 +1,6 @@
 module FamiliesHelper
     
-  # requests/_invited.html.erb で使用
+  # どちらもrequests/_invited.html.erb で使用
   
   def host_name(request)
     user_id = request.user_id

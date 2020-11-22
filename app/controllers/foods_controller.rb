@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
    before_action :require_user_logged_in
-#   before_action :have_family?
+   before_action :have_family?
    
   def index
     @foods = current_family.foods.order(purchase_date: :asc)

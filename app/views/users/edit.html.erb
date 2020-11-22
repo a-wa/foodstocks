@@ -11,7 +11,6 @@
           <% end %>
           <button type="button" class="btn">
             <%= f.file_field :image %>
-            <%#= f.hidden_field :id, value: @user.id %>
           </button>
       　　<%= f.submit '更新する', class: 'btn btn-primary' %>
         <% end %>
@@ -20,4 +19,9 @@
     
     <div>
       <%= link_to "戻る", user_path %>
+    </div>
+    
+    <div class='mt-5'>
+      <%= render "users/leave_family", user: @user %>
+      
     </div>

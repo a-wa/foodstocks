@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   end
   
   def have_family?
-    unless current_user.family_id
-      render new_family_path
+    if current_user.family_id == nil
+      redirect_to new_family_path
     end
   end
   

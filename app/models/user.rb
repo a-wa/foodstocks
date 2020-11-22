@@ -15,27 +15,31 @@ class User < ApplicationRecord
   has_many :reverses_of_request, class_name: 'Request', foreign_key: 'guest_id'
   has_many :hosts, through: :reverses_of_request, source: :user
   
+  
   def make_family_id(family)
     self.update(family_id: family.id)
   end
   
-  
+  # Requests#create で使用　新規requestを作成
   def invite(other_user)
     unless self == other_user
       self.requests.create(guest_id: other_user.id, status: 1)
     end
   end
   
+  # Requests#update で使用　requestのstatusを更新
   def answer(request_id, status)
     request = self.reverses_of_request.find(request_id)
     request.update(status: status)
   end
   
+  # Requests#updateで使用　自身のfamily_idを招待者と同じにする
   def join_family(request_id)
     request = self.reverses_of_request.find(request_id)
     host = User.find(request.user_id)
     self.update(family_id: host.family_id)
   end
+  
   
   has_many :memos
   

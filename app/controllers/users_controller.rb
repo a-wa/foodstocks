@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :update]
   before_action :correct_user, only: [:show, :update]
-#  before_action :have_family?, only: [:show]
+  before_action :have_family?, only: [:show]
 
   def show
     @user = User.find(params[:id])

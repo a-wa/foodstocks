@@ -1,8 +1,10 @@
 <div class='text-center'>
   <%= form_with(model: user, local: true) do |f| %>
     <div class="form-group"> 
-      <%= link_to "この家族から抜ける", user, method: leave_family %>
+      <%= f.submit '家族から抜ける', class: 'btn btn-danger', data: {confirm: '本当によろしいですか？' }  %>
+      <%= f.hidden_field :family_id, value: nil %>
     </div>
+    <p>家族から抜けると食材やメモの管理ができなくなります。<br>一度抜けても、今の家族メンバーから招待リクエストを受けると戻ることができます。</p>
   <% end %>
   
 </div>
