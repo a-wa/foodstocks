@@ -1,35 +1,34 @@
-<header class="mb-4">
-  <nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
-    <a class="navbar-brand" href="/">Foodstocks</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        
-        <% if logged_in? %>
-          <% if current_user.family_id %>
-            <li class="nav-item mr-3"><%= link_to 'トップページ',root_path, class: 'nav-link' %></li>
-            <li class="nav-item mr-3"><%= link_to '＋食材追加', new_food_path, class: 'nav-link' %></li>
-          <% end %>
+<% if logged_in? %>
+  <header class="mb-4">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+      <a class="navbar-brand" href="/">Foodstocks</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
           
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <% if current_user.family_id %>
-                <li class="dropdown-item"><%= link_to 'プロフィール', user_path(current_user) %></li>
-              <% end %>
-              <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
-            </ul>
-          </li>
-        
-        <% else %>
-          <li class="nav-item"><%= link_to 'ユーザ登録', signup_path, class:"nav-link" %></li>
-          <li class="nav-item"><%= link_to 'ログイン', login_path, class:"nav-link" %></li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-</header>
+          
+            <% if current_user.family_id %>
+              <li class="nav-item mr-3"><%= link_to 'トップページ',root_path, class: 'nav-link' %></li>
+              <li class="nav-item mr-3"><%= link_to '＋食材追加', new_food_path, class: 'nav-link' %></li>
+            <% end %>
+            
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <% if current_user.family_id %>
+                  <li class="dropdown-item"><%= link_to 'プロフィール', user_path(current_user) %></li>
+                <% end %>
+                <li class="dropdown-divider"></li>
+                <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+              </ul>
+            </li>
+          
+  
+        </ul>
+      </div>
+    </nav>
+  </header>
+<% end %>

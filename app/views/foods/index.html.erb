@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="table-responsive col-md-8">
-      <table class="table table-sm table-hover table-borderless table-striped">
+      <table class="table table-sm table-hover table-borderless">
         <thead class="d-none thead-light">
           <tr>
             <th>食品名</th>
@@ -11,11 +11,11 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="border-bottom">
           <% @foods.each do |food| %>
-            <tr class="row">
+            <tr class="row border-top">
               <td class="col-9 col-md-5 font-weight-bold"><%= food.name %></td>
-              <td class="col-3 col-md-1 order-md-last text-right"><%= link_to "削除", food, method: :delete, class: 'btn btn-danger btn-sm' %></td>
+              <td class="col-3 col-md-1 order-md-last text-right"><%= link_to "削除", food, method: :delete, class: 'btn btn-outline-danger btn-sm' %></td>
               <td class="col-2 col-md-1 "><%= food.place %></td>
            <!--   <td style="width:10%"><%#= food.quantity %></td> -->
               <td class="col-4 col-md-2" style="color:gray"><%= food.purchase_date %></td>

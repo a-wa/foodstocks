@@ -1,33 +1,62 @@
-<div class= "row">
-  <div class="offset-md-3 col-md-6 mr-3">
+<div class= "container">
+  <div class="mt-4 mb-3 text-center">
+    <h3>食材追加</h3>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      
+      <%= form_with(model: @food, local: true) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        
+        <div class="row justify-content-center">
+          <div class="form-group mb-3 col-11">
+            <%= f.label :name, "食品名　※必須入力" %>
+            <%= f.text_field :name, :placeholder => "", class: 'form-control'%>
+          </div>
     
-
-  <h2>食材追加</h2>
-    <%= form_with(model: @food, local: true) do |f| %>
-    <%= render 'layouts/error_messages', model: f.object %>
-      <div class="form-group row">
-        <%= f.label :name, '食品名', class: 'col-3' %>
-        <%= f.text_field :name, class: 'col-9 form-control' %>
-      </div>
-
-      <div class="form-group row">
-        <%= f.label :place, '保管場所', class: 'col-3' %>
-        <%= f.select :place, [["冷蔵","冷蔵"], ["冷凍","冷凍"], ["室温","室温"]], include_blank: "選択", class: 'form-control' %>
-      </div>
-
-      <div class="form-group row">
-        <%= f.label :quantity, '数量・単位', class: 'col-3' %>
-        <%= f.text_field :quantity, class: 'col-9 form-control' %>
-      </div>
-
-      <div class="form-group row">
-        <%= f.label :purchase_date, '購入日', class: 'col-3' %>
-        <%= f.date_field :purchase_date, class: 'col-9 form-control' %>
-      </div>
-
-      <%= f.submit '追加する', class: 'btn btn-primary btn-block' %>
-    <% end %>
-    <%= link_to '一覧へ戻る', root_path %>
+          <div class="form-group mb-3 col-11">
+            <%= f.label :quantity, '数量・単位' %>
+            <%= f.text_field :quantity, :placeholder => '', class: 'form-control' %>
+          </div>
+          
+          <div class="form-group mb-3 col-11">
+            <%= f.label :purchase_date, '購入日' %>
+            <%= f.date_field :purchase_date, class: 'form-control' %>
+          </div>
     
-  </div> 
+          <div class="form-group mb-4 col-11 row">
+            <%#= f.label :place, '保管場所', class: 'col-3' %>
+            <div class="form-check">
+              <%= f.radio_button :place, "冷蔵" %>
+              <%= f.label :place, "冷蔵", {value: "冷蔵"} %>
+            </div>
+            <div class="form-check">
+              <%= f.radio_button :place, "冷凍" %>
+              <%= f.label :place, "冷凍", {value: "冷凍"} %>
+            </div>
+            <div class="form-check">
+              <%= f.radio_button :place, "室温" %>
+              <%= f.label :place, "室温", {value: "室温"} %>
+            </div>
+            <%#= f.select :place, [["冷蔵","冷蔵"], ["冷凍","冷凍"], ["室温","室温"]], include_blank: "選択", class: 'form-control' %>
+          </div>
+  
+          <div class="col-11">
+            <%= f.submit '追加する', class: 'btn btn-primary btn-block' %>
+          </div>
+  
+          <div class="col-11 mt-4">  
+            
+            <%= link_to '一覧へ戻る', root_path %>
+          </div>
+          
+          
+          
+        </div>
+      <% end %>
+      
+    </div>
+  </div>
+    
 </div>
