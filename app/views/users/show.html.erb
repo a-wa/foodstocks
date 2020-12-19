@@ -1,34 +1,35 @@
 <div class="container">
-  <div class="text-center mt-5">
-    <h4><%= current_family.name %>  の家族一覧</h4>
-  </div>
-  
-  <div class="row mt-5">
-    <div class="col-sm-5 text-center">
-          <h4 class="card-title"><%= @user.name %></h4>
-          <%= form_with(model: @user, local: true) do |f| %>
-            <% if @user.image? %>
-              <%= image_tag @user.image.url, :size => '200x200' %>
-            <% else %>
-              <%= image_tag "/assets/default.jpg", :size => '200x200' %>
-            <% end %>
+  <div class="row mb-5">
+    <div class="col-lg-7" style="background-color: ">
+      <div class="text-center">
+        <h4><%= current_family.name %>  のメンバー</h4>
+      </div>
+      
+      <div class="row justify-content-center" style="background-color: ">
+        <div class="media mt-4 mt-lg-5 col-sm-6">
+          <% if @user.image? %>
+            <%#= image_tag @user.image.url, :size => '200x200' %>
+            <img class = "rounded" src="<%= @user.image %>" width=100 height=100>
+          <% else %>
+            <%#= image_tag "/assets/default.jpg", :size => '200x200' %>
+            <img class = "rounded" src="/assets/default.jpg" width=100 height=100>
           <% end %>
-          <div>
-            <%= link_to "ユーザ情報の編集", edit_user_path %>
+          <div class="media-body ml-4">
+            <div><%= @user.name %></div>
+            <div class="mt-2 small"><%= link_to "ユーザ情報の編集", edit_user_path %></div>
           </div>
+        </div>
+        
+        <%= render 'index', users: @users %>
+        
+      </div>
     </div>
     
-    <div class="col-sm-7">
-      <%= render 'index', users: @users %>
+    <div class="col-lg-5" style="background-color: ">
+      <div class="card mt-4">
+        <%= render 'requests/request_form', user: @user %>
+        <%= render "users/requesting", guests: @guests %>
+      </div>
     </div>
   </div>
-  
-  <div class="text-center mt-5">
-    <p><%= current_family.name %> に招待するにはこちら</p>
-    <%= render 'requests/request_form', user: @user %>
-  </div>
-  
-  
-  <%= render "users/requesting", guests: @guests %>
-
 </div>

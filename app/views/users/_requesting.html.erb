@@ -1,10 +1,14 @@
-<div class='text-center'>
-  <% if current_user.requestings.any? %>
-    <div class='mt-5'>招待中のユーザ</div>
-    <ul class="list-unstyled">
-      <% guests.each do |guest| %>
-        <li><%= guest.email %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<div class="row justify-content-center">
+  <div class="col-11">
+    <% if current_user.requestings.any? %>
+      <div class='mt-5'>招待中のユーザ</div>
+      <ul class="list-unstyled">
+        <% guests.each do |guest| %>
+          <li><%= guest.email %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>招待中のユーザはいません</p>
+    <% end %>
+  </div>
 </div>
