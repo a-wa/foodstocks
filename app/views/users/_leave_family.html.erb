@@ -1,10 +1,14 @@
-<div class='text-center'>
+<div class='card-body'>
+  <h5 class="mb-3">家族から抜ける</h5>
+  <div class="small" style="color:gray">
+    <p>家族から抜けると食材やメモの管理ができなくなります。
+    <br>新たに家族を作るか、他のユーザから招待リクエストを受ける必要があります。</p>
+  </div>
   <%= form_with(model: user, local: true) do |f| %>
     <div class="form-group"> 
       <%= f.submit '家族から抜ける', class: 'btn btn-danger', data: {confirm: '本当によろしいですか？' }  %>
       <%= f.hidden_field :family_id, value: nil %>
     </div>
-    <p>家族から抜けると食材やメモの管理ができなくなります。<br>一度抜けても、今の家族メンバーから招待リクエストを受けると戻ることができます。</p>
   <% end %>
   
 </div>

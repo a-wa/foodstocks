@@ -8,3 +8,11 @@ ja:
         place: 保管場所
         quantity: 数量・単位
         purchase_date: 購入日
+        
+    models:
+      user:
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード

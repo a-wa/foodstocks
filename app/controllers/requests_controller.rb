@@ -30,6 +30,12 @@ class RequestsController < ApplicationController
     end
   end
   
+  def delete
+    @request.destroy
+    flash[:success] = 'リクエストを取り消しました'
+    redirect_back(fallback_location: root_path)
+  end
+  
   private
   
 end

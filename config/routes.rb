@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :create, :edit, :update]
     
     resources :families, only: [:new, :create]
-    resources :requests, only: [:new, :create, :update]
+    resources :requests, only: [:new, :create, :update, :delete]
     
     resources :foods
     

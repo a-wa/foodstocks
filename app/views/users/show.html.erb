@@ -21,14 +21,17 @@
         </div>
         
         <%= render 'index', users: @users %>
+        <div class="col-sm-6"><!-- 数合わせのための空白--></div>
         
       </div>
     </div>
     
     <div class="col-lg-5" style="background-color: ">
       <div class="card mt-4">
-        <%= render 'requests/request_form', user: @user %>
-        <%= render "users/requesting", guests: @guests %>
+        <div class="card-body">
+          <%= render 'requests/request_form', user: @user %>
+          <%= render "users/requesting", guests: @guests %>
+        </div>
       </div>
     </div>
   </div>

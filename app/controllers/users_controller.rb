@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :update]
   before_action :correct_user, only: [:show, :update, :edit]
-  before_action :have_family?, only: [:show]
+  before_action :have_family?, only: [:show, :edit]
 
   def show
     @user = User.find(params[:id])
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     else
       flash[:success] = 'ユーザ情報を編集しました'     
     end
-    redirect_to user_path
+    redirect_to edit_user_path
   end
     
   
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :family_id)
+    params.fetch(:user, {}).permit(:name, :email, :password, :password_confirmation, :image, :family_id)
   end
   
   def correct_user

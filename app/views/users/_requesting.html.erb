@@ -1,7 +1,6 @@
-<div class="row justify-content-center">
-  <div class="col-11">
+<div class="mt-5">
     <% if current_user.requestings.any? %>
-      <div class='mt-5'>招待中のユーザ</div>
+      <h5>招待中のユーザ</h5>
       <ul class="list-unstyled">
         <% guests.each do |guest| %>
           <li><%= guest.email %></li>
@@ -10,5 +9,5 @@
     <% else %>
       <p>招待中のユーザはいません</p>
     <% end %>
-  </div>
+  
 </div>
