@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = User.where(family_id: current_user.family_id).where.not(id: current_user.id)
-    @requests = Request.where(guest_id: current_user.id, status: 1)
-    @guests = current_user.inviting_users
+    @requests = Request.where(user_id: current_user.id, status: 1)
+   # @guests = current_user.inviting_users
   end
 
   def new

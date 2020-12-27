@@ -40,12 +40,20 @@ class User < ApplicationRecord
     self.update(family_id: host.family_id)
   end
   
-  # Users#showで使用 招待中だが未承認のユーザ
+  # Users#showアクションで使用 招待中だが未承認のユーザ
   def inviting_users
     requests = Request.where(user_id: self.id, status: 1)
     guest_ids = requests.pluck(:guest_id)
     User.where(id: guest_ids)
   end
+  
+  #つかえないよーーー！！！
+  #わからないのでViewに直接書く
+  #def host_email
+  #  user = User.find(self.guest_id)
+  #  user.email
+  #end
+  
   
   
   def requestings

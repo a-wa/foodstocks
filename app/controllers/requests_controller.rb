@@ -30,7 +30,8 @@ class RequestsController < ApplicationController
     end
   end
   
-  def delete
+  def destroy
+    @request = Request.find_by(id: params[:id])
     @request.destroy
     flash[:success] = 'リクエストを取り消しました'
     redirect_back(fallback_location: root_path)

@@ -6,7 +6,7 @@
       </div>
       
       <div class="row justify-content-center" style="background-color: ">
-        <div class="media mt-4 mt-lg-5 col-sm-6">
+        <div class="media mt-4 mt-lg-5 col-sm-6 align-items-center">
           <% if @user.image? %>
             <%#= image_tag @user.image.url, :size => '200x200' %>
             <img class = "rounded" src="<%= @user.image %>" width=100 height=100>
@@ -30,7 +30,7 @@
       <div class="card mt-4">
         <div class="card-body">
           <%= render 'requests/request_form', user: @user %>
-          <%= render "users/requesting", guests: @guests %>
+          <%= render "users/requesting", requests: @requests %>
         </div>
       </div>
     </div>

@@ -1,10 +1,18 @@
 <div class="mt-5">
     <% if current_user.requestings.any? %>
       <h5>招待中のユーザ</h5>
-      <ul class="list-unstyled">
-        <% guests.each do |guest| %>
-          <li><%= guest.email %></li>
+      <ul class="list-unstyled container">
+        <% requests.each do |request| %>
+          <% user = User.find(request.guest_id)%>
+          <li class="mt-2 border-bottom row">
+            <%= user.email %>
+            <div class="ml-auto"><%= link_to "取り消す", request, method: :delete, class: 'btn btn-outline-danger btn-sm' %></div>
+          </li>
         <% end %>
+        
+        <%# guests.each do |guest| %>
+          <li><%#= guest.email %></li>
+        <%# end %>
       </ul>
     <% else %>
       <p>招待中のユーザはいません</p>
