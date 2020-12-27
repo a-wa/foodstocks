@@ -1,20 +1,22 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="table-responsive col-md-8">
+    <div class="col-md-8 mb-5">
+      <h5 class="mb-3">食材一覧<span class="ml-5 small"><%= link_to '＋追加', new_food_path %></span></h5>
+      
       <table class="table table-sm table-hover table-borderless">
-        <thead class="d-none thead-light">
-          <tr>
+        <!--thead class="d-none">
+          <tr class="row">
             <th>食品名</th>
             <th>保存場所</th>
             <th>購入日</th>
             <th>数量</th>
             <th></th>
           </tr>
-        </thead>
+        </thead-->
         <tbody class="border-bottom">
           <% @foods.each do |food| %>
-            <tr class="row border-top">
-              <td class="col-9 col-md-5 font-weight-bold"><%= food.name %></td>
+            <tr class="row border-top" style="background-color:#">
+              <td class="col-9 col-md-5 font-weight-bold" style="background-color:#"><%= food.name %></td>
               <td class="col-3 col-md-1 order-md-last text-right"><%= link_to "削除", food, method: :delete, class: 'btn btn-outline-danger btn-sm' %></td>
               <td class="col-2 col-md-1 "><%= food.place %></td>
            <!--   <td style="width:10%"><%#= food.quantity %></td> -->
@@ -28,6 +30,7 @@
     </div>
   
     <aside class="offset-md-1 col-md-3">
+      <h5>Memo</h5>
       <%= render "memos/memo_form", memo: @memo %>
       <%= render "memos/memos_index", memos: @memos %>
     </aside>

@@ -9,10 +9,10 @@
               <% if @user.image? %>
                 <%#= image_tag @user.image.url, :size => '150x150' , onClick:"$('#upfile').click()" %>
                 <%#= f.file_field :image, style:"display:none;", id:"upfile" %>
-                <img class = "rounded" src="<%= @user.image %>" width=180 height=180>
+                <img class = "rounded" src="<%= @user.image %>">
               <% else %>
                 <%#= image_tag "/assets/default.jpg", :size => '150x150' %>
-                <img class = "rounded" src="/assets/default.jpg" width=150 height=150>
+                <img class = "rounded" src="/assets/default.jpg">
               <% end %>
             </div>  
             <div class="small mt-2">

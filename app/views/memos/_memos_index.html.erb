@@ -18,7 +18,7 @@
               <%= memo.created_at.to_s(:datetime_jp) %>
             </div>
             <div>
-              <%= memo.content %> 
+              <%= safe_join(memo.content.split("\n"),tag(:br)) %> 
             </div>
           </div>
         </li>
