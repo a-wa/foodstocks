@@ -3,10 +3,12 @@
       <h5>招待中のユーザ</h5>
       <ul class="list-unstyled container">
         <% requests.each do |request| %>
-          <% user = User.find(request.guest_id)%>
+          <% guest = User.find(request.guest_id) %>
+          <% host = User.find(request.user_id) %>
           <li class="mt-2 border-bottom row">
-            <%= user.email %>
-            <div class="ml-auto"><%= link_to "取り消す", request, method: :delete, class: 'btn btn-outline-danger btn-sm' %></div>
+            <%= guest.email %>
+            
+            <div class="ml-auto"><span class="small"><%= host.name %> </span><%= link_to "取り消す", request, method: :delete, class: 'btn btn-outline-danger btn-sm' %></div>
           </li>
         <% end %>
         

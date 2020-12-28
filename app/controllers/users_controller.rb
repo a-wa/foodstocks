@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = User.where(family_id: current_user.family_id).where.not(id: current_user.id)
-    @requests = Request.where(user_id: current_user.id, status: 1)
+    @requests = Request.where(family_id: current_user.family_id, status: 1)
    # @guests = current_user.inviting_users
   end
 
@@ -33,6 +33,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user.update(user_params)
     if current_user.family_id == nil
+      current_user.requests.destroy_all
       flash[:success] = '家族から抜けました'
     else
       flash[:success] = 'ユーザ情報を編集しました'     

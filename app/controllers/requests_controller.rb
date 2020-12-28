@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
     elsif current_user.family_id == guest_user.family_id
       flash[:danger] = 'すでに同じ家族のユーザです'
     elsif
-      Request.find_by(user_id: current_user.id, guest_id: guest_user.id, status: 1)
+      Request.find_by(family_id: current_user.family_id, guest_id: guest_user.id, status: 1)
       flash[:danger] = '招待中のユーザです　回答をお待ちください'
     elsif
       current_user.invite(guest_user)

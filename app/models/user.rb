@@ -20,10 +20,10 @@ class User < ApplicationRecord
     self.update(family_id: family.id)
   end
   
-  # Requests#create で使用　新規requestを作成
+  # Requests#create で使用　新規requestを作成 2020/12/29 family_idを追加
   def invite(other_user)
     unless self == other_user
-      self.requests.create(guest_id: other_user.id, status: 1)
+      self.requests.create(guest_id: other_user.id, status: 1, family_id: self.family_id)
     end
   end
   
@@ -33,19 +33,21 @@ class User < ApplicationRecord
     request.update(status: status)
   end
   
-  # Requests#updateで使用　自身のfamily_idを招待者と同じにする
+  # Requests#updateで使用　自身のfamily_idを招待者と同じにする 2020/12/29 リクエストしてきたユーザではなくrequestのfamily_idを参照する
   def join_family(request_id)
     request = self.reverses_of_request.find(request_id)
-    host = User.find(request.user_id)
-    self.update(family_id: host.family_id)
+    #host = User.find(request.user_id)
+    #self.update(family_id: host.family_id)
+    self.update(family_id: request.family_id)
   end
   
   # Users#showアクションで使用 招待中だが未承認のユーザ
-  def inviting_users
-    requests = Request.where(user_id: self.id, status: 1)
-    guest_ids = requests.pluck(:guest_id)
-    User.where(id: guest_ids)
-  end
+  #@guestのところ
+  #def inviting_users
+  #  requests = Request.where(user_id: self.id, status: 1)
+  #  guest_ids = requests.pluck(:guest_id)
+  #  User.where(id: guest_ids)
+  #end
   
   #つかえないよーーー！！！
   #わからないのでViewに直接書く
@@ -55,9 +57,9 @@ class User < ApplicationRecord
   #end
   
   
-  
+  #「招待中のユーザ」未承認のリクエスト　2020/12/29 自分以外の家族が送ったリクエストも含めるように変更
   def requestings
-    self.requests.where(status: 1)
+    Request.where(status: 1, family_id: self.family_id)
   end
   
   
