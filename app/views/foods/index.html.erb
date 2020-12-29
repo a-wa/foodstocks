@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-8 mb-5">
-      <h5 class="mb-3">食材一覧<span class="ml-5 small"><%= link_to '＋追加', new_food_path %></span></h5>
+      <h4 class="mb-3">食材一覧<span class="ml-5 small"><%= link_to '＋追加', new_food_path %></span></h4>
       
       <table class="table table-sm table-hover table-borderless">
         <!--thead class="d-none">
@@ -30,7 +30,7 @@
     </div>
   
     <aside class="offset-md-1 col-md-3">
-      <h5>Memo</h5>
+      <h4>Memo</h4>
       <%= render "memos/memo_form", memo: @memo %>
       <%= render "memos/memos_index", memos: @memos %>
     </aside>

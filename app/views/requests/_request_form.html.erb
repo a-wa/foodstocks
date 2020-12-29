@@ -1,10 +1,10 @@
-<div class="">
-    <h5 class="mb-3"><%= current_family.name %> に招待する</h5>
+<div class="mb-5">
+    <h5 class="mb-3">ユーザを招待する</h5>
     <%= form_with(model: Request.new, local: true) do |f| %>
       <div class="form-group">
         <%= f.email_field :email, class: 'form-control', placeholder:'メールアドレス' %>
       </div>
-      <%= f.submit '招待する', class: 'btn btn-primary btn-block' %>
-      <p class="small" style="color:gray">※ユーザ未登録のアドレスには招待を送れません</p>
+      <%= f.submit 'リクエスト送信', class: 'btn btn-primary btn-block' %>
+      <p class="small" style="color:gray">ユーザ未登録のアドレスにはリクエストを送れません</p>
     <% end %>
 </div>

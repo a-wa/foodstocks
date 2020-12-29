@@ -1,11 +1,18 @@
-<div class="container">
+<div class="">
   <div class="row">
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
-          <h5 class="mb-3">プロフィール画像</h5>
+          <h4 class="mb-4">基本情報</h4>
+          
+          
           <%= form_with(model: @user, local: true) do |f| %>
+            <div class="form-group form-row align-items-center mb-3">
+              <%= f.label :name, '名前', class: 'col-3 col-sm-2' %>
+              <%= f.text_field :name, class: 'form-control col-9' %>
+            </div>
             <div>
+              <h6 class="mb-2">プロフィール画像</h6>
               <% if @user.image? %>
                 <%#= image_tag @user.image.url, :size => '150x150' , onClick:"$('#upfile').click()" %>
                 <%#= f.file_field :image, style:"display:none;", id:"upfile" %>
@@ -14,13 +21,12 @@
                 <%#= image_tag "/assets/default.jpg", :size => '150x150' %>
                 <img class = "rounded" src="/assets/default.jpg">
               <% end %>
+              <div class="small mt-2">
+                <%= f.file_field :image %>
+              </div>
             </div>  
-            <div class="small mt-2">
-              <%= f.file_field :image %>
-            </div>
-            <div class="mt-2 ml-0">
-          　　<%= f.submit '更新する', class: 'btn btn-primary' %>
-        　　</div>
+            
+            <div class="mt-3 ml-0"><%= f.submit '更新する', class: 'btn btn-primary btn-block' %></div>
           <% end %>
          
         </div>

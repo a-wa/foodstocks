@@ -1,6 +1,6 @@
 <div class="mt-5">
     <% if current_user.requestings.any? %>
-      <h5>招待中のユーザ</h5>
+      <h5 class="mb-3">招待中のユーザ</h5>
       <ul class="list-unstyled container">
         <% requests.each do |request| %>
           <% guest = User.find(request.guest_id) %>

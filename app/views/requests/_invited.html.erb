@@ -3,23 +3,25 @@
     <% requests.each do |request| %>
       <li>
         <div class ='alert alert-success'>
-          <%= host_name(request) %>さんから家族（<%= host_family(request) %>）への招待リクエストが来ています！
+          <%= host_name(request) %>さんから【<%= host_family(request) %>】に招待されました！
           <div class="btn-group">
-          <%= form_with(model: request, local: true) do |f| %>
-            <%= hidden_field_tag :status, 2 %>
-            <%= hidden_field_tag :id, request.id %>
-            <%= f.submit '承認' ,class: 'btn btn-link' %>
-          <% end %>
-          <%= form_with(model: request, local: true) do |f| %>
-            <%= hidden_field_tag :status, 3 %>
-            <%= hidden_field_tag :id, request.id %>
-            <%= f.submit '拒否', class: 'btn btn-link' %>
-          <% end %>
+            <%= form_with(model: request, local: true) do |f| %>
+              <%= hidden_field_tag :status, 2 %>
+              <%= hidden_field_tag :id, request.id %>
+              <%= f.submit '承認' ,class: 'btn btn-link' %>
+            <% end %>
+            <%= form_with(model: request, local: true) do |f| %>
+              <%= hidden_field_tag :status, 3 %>
+              <%= hidden_field_tag :id, request.id %>
+              <%= f.submit '拒否', class: 'btn btn-link' %>
+            <% end %>
           </div>
+          
         </div>
-      　
       </li>
     <% end %>
-    
+    <p class="small">家族はひとつのみ所属できます</p>
   </ul>
+<% else %>
+  <div class='alert alert-danger'>リクエストが届くのをお待ちください</div>
 <% end %>
