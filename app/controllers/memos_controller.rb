@@ -5,7 +5,7 @@ class MemosController < ApplicationController
   
   def create
     @memo = current_user.memos.build(memo_params)
-    @foods = current_family.foods.order(purchase_date: :asc)
+#    @foods = current_family.foods.order(purchase_date: :asc)
     if @memo.save
   #    flash[:success] = 'メモしました'
       redirect_to root_path

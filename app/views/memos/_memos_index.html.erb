@@ -7,17 +7,17 @@
           <% else %>
             <img class = "rounded" src="/assets/default.jpg" width=50 height=50>
           <% end %>
-          <div class="media-body ml-3">
-            <div>
+          <div class="container media-body ml-3">
+            <div class="row justify-content-between">
               <%= memo.user.name %>
               <% if current_user == memo.user %>
-                <%= link_to "消去", memo, method: :delete %>
+                <%= link_to "削除", memo, method: :delete, class: 'btn btn-outline-danger btn-sm' %>
               <% end %>
             </div>
-            <div style="color:gray">
+            <div class="row" style="color:gray">
               <%= memo.created_at.to_s(:datetime_jp) %>
             </div>
-            <div>
+            <div class="row">
               <%= safe_join(memo.content.split("\n"),tag(:br)) %> 
             </div>
           </div>

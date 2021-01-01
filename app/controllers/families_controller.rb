@@ -15,8 +15,8 @@ class FamiliesController < ApplicationController
       current_user.make_family_id(@family)
       redirect_to user_path(current_user)
     else
-      flash.now[:danger] ='家族の登録に失敗しました'
-      render new_family_path
+     # flash.now[:danger] ='家族の登録に失敗しました'
+      render :new
     end
     
   end

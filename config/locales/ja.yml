@@ -16,3 +16,15 @@ ja:
         name: 名前
         email: メールアドレス
         password: パスワード
+        
+    models:
+      family:
+    attributes:
+      family:
+        name: 家族名
+        
+    models:
+      food:
+    attributes:
+      food:
+        name: 食品名

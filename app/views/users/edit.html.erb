@@ -18,8 +18,8 @@
                 <%#= f.file_field :image, style:"display:none;", id:"upfile" %>
                 <img class = "rounded" src="<%= @user.image %>">
               <% else %>
-                <%#= image_tag "/assets/default.jpg", :size => '150x150' %>
-                <img class = "rounded" src="/assets/default.jpg">
+                <%= image_tag "/assets/default.jpg", :size => '200x200', class: "rounded" %>
+                <!--img class = "rounded" src="/assets/default.jpg"-->
               <% end %>
               <div class="small mt-2">
                 <%= f.file_field :image %>
