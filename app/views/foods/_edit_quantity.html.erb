@@ -1,5 +1,5 @@
 <%= form_with(model: food, local: true) do |f| %>
-  <div class="form-group btn-group" style="display:inline-flex">
+  <div class="btn-group" style="">
     <%= hidden_field_tag :id, food.id %>
     <%= f.text_field :quantity, class: 'form-control form-control-sm', placeholder: "残量を入力" %>
     <%#= f.text_field :quantity, value: '', class: 'form-control', placeholder: "残量を入力" %>

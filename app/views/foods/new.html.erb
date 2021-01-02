@@ -39,6 +39,10 @@
               <%= f.radio_button :place, "室温" %>
               <%= f.label :place, "室温", {value: "室温"} %>
             </div>
+            <div class="form-check">
+              <%= f.radio_button :place, "　　", checked: true %>
+              <%= f.label :place, "　　", {value: "指定しない"} %>
+            </div>
             <%#= f.select :place, [["冷蔵","冷蔵"], ["冷凍","冷凍"], ["室温","室温"]], include_blank: "選択", class: 'form-control' %>
           </div>
   

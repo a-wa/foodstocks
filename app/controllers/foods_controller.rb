@@ -15,7 +15,7 @@ class FoodsController < ApplicationController
   def create
     @food = current_family.foods.build(food_params)
     if @food.save
-      flash[:success] = '食材を追加しました'
+      flash[:success] = @food.name + 'を追加しました'
       redirect_to new_food_path
     else
       flash[:danger] = '食材を追加できませんでした'
