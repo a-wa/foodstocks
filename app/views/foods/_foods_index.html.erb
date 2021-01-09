@@ -1,0 +1,14 @@
+      <div class="row">
+        <% foods.each do |food| %>
+          <div class="card shadow rounded-0 col-6 col-md-4 p-0">
+            <div class=""><span class="p-2 badge badge-secondary rounded-0 font-weight-normal" style="background-color:<%= placecolor(food) %>"><%= food.place %></span> <%= food.name %></div>
+            <div class="container">
+              <div class="mt-1 mb-1" ><%= render 'foods/edit_quantity', food: food %></div>
+              <div class="row justify-content-between mb-1">
+                <div class="small col-8"><%= food.purchase_date %></div>
+                <div class="col text-right" style=""><%= link_to(food, method: :delete, class:"btn p-0 text-muted") do %><i class="fas fa-trash-alt"></i><% end %></div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>

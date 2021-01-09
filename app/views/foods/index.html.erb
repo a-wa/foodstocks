@@ -1,34 +1,26 @@
-<div class="">
+<div class="mb-5">
   <div class="row">
-    <div class="col-md-9 mb-5 pr-md-5">
+    
+    <div id="foods" class="col-md-9 mb-5 pr-md-5">
       <h4 class="mb-3">食材一覧<span class="ml-5 small"><%= link_to '＋ストックする', new_food_path %></span></h4>
-      
-      <div class="row">
-        <% @foods.each do |food| %>
-          <div class="card shadow rounded-0 col-6 col-md-4 p-0">
-            <div class=""><span class="p-2 badge badge-secondary rounded-0 font-weight-normal" style="background-color:<%= placecolor(food) %>"><%= food.place %></span> <%= food.name %></div>
-            <div class="container">
-              <div class="mt-1 mb-1" ><%= render 'foods/edit_quantity', food: food %></div>
-              <div class="row justify-content-between mb-1">
-                <div class="small col-8"><%= food.purchase_date %></div>
-                <div class="col text-right" style=""><%= link_to(food, method: :delete, class:"btn p-0 text-muted") do %><i class="fas fa-trash-alt"></i><% end %></div>
-              </div>
-            </div>
-            
-            
-          </div>
-          
-          
-        <% end %>
-      </div>
-      
-      
-      
+      <%= render "foods_index", foods: @foods %>
     </div>
   
-    <aside class="col-md-3">
-      <h4>Memo</h4>
+    <aside id="memos" class="col-md-3">
+      <h4></h4>
       <%= render "memos/memo_form", memo: @memo %>
       <%= render "memos/memos_index", memos: @memos %>
     </aside>
+    
   </div>
+</div>
+  
+  
+<div class="d-md-none d-block fixed-bottom">
+  <div class="row border-top p-2" style="background-color:#eee">
+    <div class="col text-center"><a href="#foods" class="text-dark"><i class="fas fa-fish fa-rotate-180 fa-lg"></i>  食材</a></div>
+    <div class="col text-center"><a href="#memos" class="text-dark"><i class="far fa-sticky-note fa-lg"></i>  メモ</a></div>
+  </div>
+
+
+</div> 

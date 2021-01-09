@@ -19,10 +19,10 @@
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
               <ul class="dropdown-menu dropdown-menu-right">
                 <% if current_user.family_id %>
-                  <li class="dropdown-item"><%= link_to 'プロフィール', user_path(current_user) %></li>
+                  <li><%= link_to 'プロフィール', user_path(current_user), class: 'dropdown-item' %></li>
                 <% end %>
                 <li class="dropdown-divider"></li>
-                <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+                <li><%= link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item' %></li>
               </ul>
             </li>
           

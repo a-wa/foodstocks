@@ -1,24 +1,28 @@
 
     <ul class="list-unstyled">
       <% memos.each do |memo| %>
-        <li class="media mt-3">
+        <li class="media mt-2" style="background-color:#f0f8e6">
           <% if memo.user.image? %>
-            <img class = "rounded" src="<%= memo.user.image %>" width=50 height=50>
+            <img class = "rounded m-2" src="<%= memo.user.image %>" width=50 height=50>
           <% else %>
-            <img class = "rounded" src="/assets/default.jpg" width=50 height=50>
+            <img class = "rounded m-2" src="/assets/default.jpg" width=50 height=50>
           <% end %>
-          <div class="container media-body ml-3">
+          <div class="container media-body">
             <div class="row justify-content-between">
-              <%= memo.user.name %>
-              <% if current_user == memo.user %>
-                <%= link_to "削除", memo, method: :delete, class: 'btn btn-outline-danger btn-sm' %>
-              <% end %>
+              <div><%= memo.user.name %></div>
+              <div class="mr-2">
+                <% if current_user == memo.user %>
+                  <%= link_to(memo, method: :delete, class: 'btn p-0 text-muted')do %><i class="fas fa-trash-alt"></i><% end %>
+                <% end %>
+              </div>
             </div>
-            <div class="row" style="color:gray">
-              <%= memo.created_at.to_s(:datetime_jp) %>
-            </div>
+            
             <div class="row">
               <%= safe_join(memo.content.split("\n"),tag(:br)) %> 
+            </div>
+            <div class="row justify-content-between small" style="color:gray">
+              <%= memo.created_at.to_s(:datetime_jp) %>
+              <img src="/assets/mekuri.png" width=30 height=30>
             </div>
           </div>
         </li>

@@ -1,8 +1,8 @@
     <%= form_with(model: memo, local: true) do |f| %>
       <div class="form-group">
-        <%= f.text_area :content, class: 'form-control', rows: 3 %>
+        <%= f.text_area :content, class: 'form-control', rows: 3, placeholder: "メモ" %>
         <%#= hidden_field_tag :user_id, current_user.id %>
         <%= f.hidden_field :family_id, value: current_family.id %>
       </div>
-      <%= f.submit '追加', class: 'btn btn-warning btn-block' %>
+      <%= f.submit '追加', class: 'btn btn-success btn-block' %>
     <% end %>
