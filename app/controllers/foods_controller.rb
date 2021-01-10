@@ -18,7 +18,7 @@ class FoodsController < ApplicationController
       flash[:success] = @food.name + 'を追加しました'
       redirect_to new_food_path
     else
-      flash[:danger] = '食材を追加できませんでした'
+   #   flash[:danger] = '食材を追加できませんでした'
       render new_food_path
     end
   end

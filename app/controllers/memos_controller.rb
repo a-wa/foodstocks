@@ -12,7 +12,7 @@ class MemosController < ApplicationController
     else
       @memos = current_family.memos.order(id: :desc)
       flash[:danger] = 'メモできませんでした'
-      render 'foods/index'
+      redirect_to root_path
     end
     
   end

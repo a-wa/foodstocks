@@ -1,8 +1,16 @@
+  <div class="container">
     <%= form_with(model: memo, local: true) do |f| %>
-      <div class="form-group">
-        <%= f.text_area :content, class: 'form-control', rows: 3, placeholder: "メモ" %>
-        <%#= hidden_field_tag :user_id, current_user.id %>
-        <%= f.hidden_field :family_id, value: current_family.id %>
+      <div class="row align-items-end">
+        <div class="col">
+          <%= f.text_area :content, class: 'form-control', rows: 3, placeholder: "メモ" %>
+          <%#= hidden_field_tag :user_id, current_user.id %>
+          <%= f.hidden_field :family_id, value: current_family.id %>
+        </div>
+        <div class="">
+          <%= f.button type: 'submit', class: 'btn btn-success rounded-circle' do %>
+            <i class="fas fa-pen"></i>
+          <% end %>
+        </div>
       </div>
-      <%= f.submit '追加', class: 'btn btn-success btn-block' %>
     <% end %>
+  </div>

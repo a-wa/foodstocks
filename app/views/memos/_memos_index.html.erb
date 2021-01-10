@@ -9,7 +9,7 @@
           <% end %>
           <div class="container media-body">
             <div class="row justify-content-between">
-              <div><%= memo.user.name %></div>
+              <div class="small pt-1" style="color:gray"><%= memo.created_at.to_s(:datetime_jp) %></div>
               <div class="mr-2">
                 <% if current_user == memo.user %>
                   <%= link_to(memo, method: :delete, class: 'btn p-0 text-muted')do %><i class="fas fa-trash-alt"></i><% end %>
@@ -20,8 +20,9 @@
             <div class="row">
               <%= safe_join(memo.content.split("\n"),tag(:br)) %> 
             </div>
-            <div class="row justify-content-between small" style="color:gray">
-              <%= memo.created_at.to_s(:datetime_jp) %>
+            <div class="row float-right small">
+              
+              <%= memo.user.name %>
               <img src="/assets/mekuri.png" width=30 height=30>
             </div>
           </div>

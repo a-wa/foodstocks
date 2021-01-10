@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row mb-5">
-    <div class="col-lg-7" style="background-color: ">
+  <div class="row mb-5 mt-4">
+    <div class="col-lg-7">
       <div class="text-center">
         <h4><%= current_family.name %>  のメンバー</h4>
       </div>
@@ -16,7 +16,7 @@
           <% end %>
           <div class="media-body ml-4">
             <div><%= @user.name %></div>
-            <div class="mt-2 small"><%= link_to "ユーザ情報の編集", edit_user_path %></div>
+            <div class="mt-2 small"><%= link_to "編集", edit_user_path, class: "btn btn-outline-success btn-sm p-1" %></div>
           </div>
         </div>
         
