@@ -11,7 +11,7 @@ class MemosController < ApplicationController
       redirect_to root_path
     else
       @memos = current_family.memos.order(id: :desc)
-      flash[:danger] = 'メモできませんでした'
+      flash[:warning] = 'メモできませんでした'
       redirect_to root_path
     end
     

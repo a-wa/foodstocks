@@ -26,7 +26,7 @@ class FoodsController < ApplicationController
   def update
     @food = Food.find_by(id: params[:id])
     @food.update(food_params)
-    flash[:success] = @food.name + ' は残り' + @food.quantity + 'です'
+    flash[:success] = @food.name + ' は残り' + @food.quantity + ' ' + @food.unit + ' です'
     redirect_to root_path
     
   end
@@ -42,5 +42,5 @@ end
 private
 
 def food_params
-  params.require(:food).permit(:name, :place, :quantity, :purchase_date)
+  params.require(:food).permit(:name, :place, :quantity, :unit, :category, :purchase_date)
 end

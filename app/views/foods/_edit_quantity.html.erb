@@ -1,8 +1,10 @@
 <%= form_with(model: food, local: true) do |f| %>
   <div class="btn-group" style="">
     <%= hidden_field_tag :id, food.id %>
-    <%= f.text_field :quantity, class: 'form-control form-control-sm', placeholder: "残量を入力" %>
+    <%= f.number_field :quantity, class: 'form-control form-control-sm', placeholder: "残量を入力" %>
+    <%= f.select :unit, [["g","g"], ["kg","kg"], ["mL","mL"],["L","L"],["個","個"],["本","本"],["パック","パック"],["箱","箱"]], include_blank: "単位を選択", class: 'form-control col' %>
     <%#= f.text_field :quantity, value: '', class: 'form-control', placeholder: "残量を入力" %>
     <%= f.submit '更新', class: 'btn btn-outline-secondary btn-sm' %>
+    
   </div>
 <% end %>
