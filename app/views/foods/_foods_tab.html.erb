@@ -1,0 +1,29 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item"><a href="#all" class="nav-link">全て</a></li>
+  <li class="nav-item"><a href="#meats" class="nav-link">肉・海鮮</a></li>
+  <li class="nav-item"><a href="#veges" class="nav-link">野菜・果物</a></li>
+  <li class="nav-item"><a href="#drinks" class="nav-link">飲料</a></li>
+  <li class="nav-item"><a href="#others" class="nav-link">その他</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane fade" id="all">
+    <%= render "foods_index", foods: foods %>
+  </div>
+  <div class="tab-pane fade" id="meats">
+    <% meats = foods.where(category: 1) %>
+    <%= render "foods_index", foods: meats %>
+  </div>
+  <div class="tab-pane fade" id="veges">
+    <% meats = foods.where(category: 2) %>
+    <%#= render "foods_index", foods: meats %>
+  </div>
+  <div class="tab-pane fade" id="drinks">
+    <% meats = foods.where(category: 3) %>
+    <%#= render "foods_index", foods: meats %>
+  </div>
+  <div class="tab-pane fade" id="others">
+    <% meats = foods.where(category: 4) %>
+    <%#= render "foods_index", foods: meats %>
+  </div>
+</div>

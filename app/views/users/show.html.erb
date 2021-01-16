@@ -9,10 +9,10 @@
         <div class="media mt-4 mt-lg-5 col-sm-6 align-items-center">
           <% if @user.image? %>
             <%#= image_tag @user.image.url, :size => '200x200' %>
-            <img class = "rounded" src="<%= @user.image %>" width=100 height=100>
+            <img class = "rounded-circle" src="<%= @user.image %>" width=100 height=100>
           <% else %>
             <%#= image_tag "/assets/default.jpg", :size => '200x200' %>
-            <img class = "rounded" src="/assets/default.jpg" width=100 height=100>
+            <img class = "rounded-circle" src="/assets/default.jpg" width=100 height=100>
           <% end %>
           <div class="media-body ml-4">
             <div><%= @user.name %></div>

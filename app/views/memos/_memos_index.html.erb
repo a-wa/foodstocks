@@ -3,9 +3,9 @@
       <% memos.each do |memo| %>
         <li class="media mt-2" style="background-color:#f0f8e6">
           <% if memo.user.image? %>
-            <img class = "rounded m-2" src="<%= memo.user.image %>" width=50 height=50>
+            <img class = "rounded-circle m-2" src="<%= memo.user.image %>" width=50 height=50>
           <% else %>
-            <img class = "rounded m-2" src="/assets/default.jpg" width=50 height=50>
+            <img class = "rounded-circle m-2" src="/assets/default.jpg" width=50 height=50>
           <% end %>
           <div class="container media-body">
             <div class="row justify-content-between">
