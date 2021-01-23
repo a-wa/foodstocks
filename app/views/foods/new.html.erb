@@ -24,7 +24,7 @@
             <div class="container">
               <div class="row">
                 <%= f.number_field :quantity, :placeholder => '', class: 'form-control col-4' %>
-                <%= f.select :unit, [["ｇ","ｇ"], ["ｍL","ｍL"],["個","個"],["本","本"],["パック","パック"],["箱","箱"]], include_blank: "単位を選択", class: 'form-control col' %>
+                <%= f.select :unit, [["ｇ","ｇ"], ["ｍL","ｍL"],["個","個"],["本","本"],["パック","パック"],["箱","箱"],["切れ","切れ"]], include_blank: "単位を選択", class: 'form-control col' %>
               </div>
             </div>
           </div>
@@ -84,9 +84,8 @@
   
           <div class="row">
             <%= f.submit '追加する', class: 'col btn btn-success m-3' %>
-            <%= link_to '一覧へ戻る', foods_path, class: 'col btn btn-light m-3 border'%>
           </div>
-          
+          <div class="text-right mb-5"><%= link_to '一覧へ戻る', foods_path, class: 'btn btn-light mt-0 border'%></div>
         </div>
       <% end %>
       

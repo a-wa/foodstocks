@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show, :update]
-  before_action :correct_user, only: [:show, :update, :edit]
+  before_action :require_user_logged_in, only: [:show, :update, :password_edit]
+  before_action :correct_user, only: [:show, :update, :edit, :password_edit]
   before_action :have_family?, only: [:show, :edit]
 
   def show
@@ -40,13 +40,33 @@ class UsersController < ApplicationController
     end
     redirect_to edit_user_path
   end
+  
+  def password_edit
+    @user = User.find(params[:id])
+  end
+  
+  #def password_update わからない！！！！！
+  #  @user = User.find(params[:id])
+ #   if correct_password(params[:old_password])
+  #    if @user.update(password: params[:password])
+   #     flash[:success] = 'パスワードを変更しました'
+  #      redirect_to @user
+   #   else
+    #    flash[:danger] = 'パスワードを変更できませんでした'
+     #   render :password_edit
+     # end
+  #  else
+   #   flash[:danger] = 'パスワードが間違っています'
+    #  render :password_edit
+    #end
+#  end
     
   
   private
   
   
   def user_params
-    params.fetch(:user, {}).permit(:name, :email, :password, :password_confirmation, :image, :family_id)
+    params.fetch(:user, {}).permit(:name, :email, :password, :password_confirmation, :image, :family_id, :old_password)
   end
   
   def correct_user
@@ -55,6 +75,16 @@ class UsersController < ApplicationController
       redirect_to(root_path)
     end
   end
+  
+  def correct_password(password)
+    @user = User.find(params[:id])
+    if @user && @user.authenticate(password)
+      return true
+    else
+      return false
+    end
+  end
+  
 
   
 

@@ -10,7 +10,14 @@ Rails.application.routes.draw do
     
     get 'top', to: 'toppages#index'
     
-    resources :users, only: [:index, :show, :create, :edit, :update]
+    
+    resources :users, only: [:index, :show, :create, :edit, :update] do
+      member do
+        get :password_edit
+       # put :password_update
+        #patch :password_update
+      end
+    end
     
     resources :families, only: [:new, :create]
     resources :requests, only: [:new, :create, :update, :destroy]
