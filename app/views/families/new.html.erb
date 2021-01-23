@@ -1,31 +1,33 @@
-<h4 class="text-center mt-4 mb-4" style="">家族登録</h4>
-  
-<div class="row">
-  <div class="offset-md-3 col-md-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="mb-4"><i class="fas fa-user-friends text-success"></i> 他のユーザの家族に入る</h5>
-        <%= render 'requests/invited', requests: @requests %>
+<div class="container">  
+  <h4 class="text-center mt-4 mb-4" style="">家族登録</h4>
+    
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="mb-4"><i class="fas fa-user-friends text-success"></i> 他のユーザの家族に入る</h5>
+          <%= render 'requests/invited', requests: @requests %>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <div class="mt-3 offset-md-3 col-md-6 text-center">または</div>
-  
-  <div class="mt-3 mb-3 offset-md-3 col-md-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="mb-4"><i class="fas fa-plus-circle text-success"></i> 新しく家族をつくる</h5>
-        <p class="mb-2">登録後に他のユーザを招待できます</p>
-        <%= form_with(model: @family, local: true) do |f| %>
-          <%= render 'layouts/error_messages', model: f.object %>
-          
-          <div class="form-group">
-            <%#= f.label :name, '家族名' %>
-            <%= f.text_field :name, class: 'form-control', placeholder: '家族名'  %>
-          </div>
-          <%= f.submit '登録', class: 'btn btn-success btn-block' %>
-        <% end %>
+    
+    <div class="mt-3 offset-md-3 col-md-6 text-center">または</div>
+    
+    <div class="mt-3 mb-3 offset-md-3 col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="mb-4"><i class="fas fa-plus-circle text-success"></i> 新しく家族をつくる</h5>
+          <p class="mb-2">登録後に他のユーザを招待できます</p>
+          <%= form_with(model: @family, local: true) do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
+            
+            <div class="form-group">
+              <%#= f.label :name, '家族名' %>
+              <%= f.text_field :name, class: 'form-control', placeholder: '家族名'  %>
+            </div>
+            <%= f.submit '登録', class: 'btn btn-success btn-block' %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

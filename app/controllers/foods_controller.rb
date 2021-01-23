@@ -27,7 +27,7 @@ class FoodsController < ApplicationController
     @food = Food.find_by(id: params[:id])
     @food.update(food_params)
     flash[:success] = @food.name + ' は残り' + @food.quantity + ' ' + @food.unit + ' です'
-    redirect_to root_path
+    redirect_to foods_path
     
   end
 
@@ -35,7 +35,7 @@ class FoodsController < ApplicationController
     @food = Food.find_by(id: params[:id])
     @food.destroy
     flash[:success] = @food.name + ' を使い切りました'
-    redirect_to root_path
+    redirect_to foods_path
   end
 end
 

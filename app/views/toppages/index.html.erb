@@ -1,15 +1,70 @@
-<% if logged_in? %>
-  <p>ログイン完了ユーザ： <%= current_user.name %></p>
+<div class="">
 
-<% else %>
-
-  <div class="center jumbotron">
-    <div class="text-center">
-      <h1>Foodstocks</h1>
+  <header class="top p-4 mb-sm-5" style="background-color:#66aa11">
+    <div class="row justify-content-center">
+      <div class="text-center">
+        <h4 style="color:white">食材管理アプリ</h4>
+        <img class="mb-3 mr-3" src="/assets/tabemo_logo_b.png" width=250>
+      </div>
+    </div>
+  </header>
     
-      <h4>家族で食材管理</h4>
-      <%= link_to 'ユーザ登録', signup_path, class: 'btn btn-lg btn-primary' %>
-      <%= link_to 'ログイン', login_path, class: 'btn btn-lg btn-primary' %>
+        
+  <div class="container mt-5 mb-5">
+    <div class="row justify-content-center">   
+      <div class="col"></div>
+      <div class="col-md-5 m-2">
+        <h4 class="pb-3"><img class="mr-3" src="/assets/tabemo_logo_a.png" width=100>とは？</h4>
+        <p>家族や仲間と食材の記録・管理ができるアプリです。
+        <br>必要なものを、必要なぶんだけ。
+        <br>買い忘れや買い過ぎを防いで
+        <br>スマートな生活を応援します。</p>
+      </div>
+      <div class="col-md-4" style="text-align:center">
+        <img class="d-sm-none" src="/assets/vege.png" width=250>
+        <img class="d-none d-sm-inline" src="/assets/vege.png" width=350>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div> 
+  
+  <div class="p-4 mt-5" style="background-color:#fff9e7">
+    <div class="row justify-content-center">
+      <div class="col-md-3 text-center mb-3 mt-3">
+        <i class="fas fa-users fa-3x" style="color:#6a1"></i>
+        <h5 class="m-2">家族になる</h5>
+        <img class="mb-3 shadow" src="/assets/family.png" width=250>
+        
+      </div>
+      <div class="col-md-3 text-center mb-3 mt-3">
+        <i class="fas fa-utensils fa-3x" style="color:#6a1"></i>
+        <h5 class="m-2">食材を管理</h5>
+        <img class="mb-3 shadow" src="/assets/foods.png" width=250>
+      </div>
+      <div class="col-md-3 text-center mb-3 mt-3">
+        <i class="fas fa-sticky-note fa-3x" style="color:#6a1"></i>
+        <h5 class="m-2">メモで伝える</h5>
+        <img class="mb-3 shadow" src="/assets/memos.png" width=250>
+      </div>
+    </div>
+    
+    <div class="text-center mb-5 mt-5">
+      <%= link_to 'ユーザ登録', signup_path, class: 'btn btn-lg btn-success' %>
     </div>
   </div>
-<% end %>
+  
+  
+
+</div>
+
+
+
+
+
+    
+      <%#= link_to 'ユーザ登録', signup_path, class: 'btn btn-lg btn-primary' %>
+      <%#= link_to 'ログイン', login_path, class: 'btn btn-lg btn-primary' %>
+
+  
+  
+  

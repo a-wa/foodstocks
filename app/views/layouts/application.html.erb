@@ -8,6 +8,7 @@
     <%= csp_meta_tag %>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -18,10 +19,10 @@
     
   </head>
 
-  <body style="padding-top: 56px;">
+  <body style="padding-top: 59px;">
     <%= render 'layouts/navbar' %>
     
-    <div class="container">
+    <div class="">
       <%= render 'layouts/flash_messages' %>
       <%= yield %>
     </div>

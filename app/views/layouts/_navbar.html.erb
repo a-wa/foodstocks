@@ -1,15 +1,15 @@
-<% if logged_in? %>
-  <header class="fixed-top">
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:#6a1">
-      <a class="navbar-brand" href="/">Foodstocks</a>
+<header class="fixed-top">
+  <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:#6a1">
+    <a class="navbar-brand mr-5" href="/"><img src="/assets/tabemo_logo_b.png" height=30></a>
+    
+    <% if logged_in? %>  
       <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent", style="">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <% if current_user.family_id %>
-            <li class="nav-item mr-3"><%= link_to(root_path, class: 'nav-link') do %><i class="fas fa-home"></i> ホーム<% end %></li>
+            <li class="nav-item mr-3"><%= link_to(foods_path, class: 'nav-link') do %><i class="fas fa-utensils"></i> 食材一覧<% end %></li>
             <li class="nav-item mr-3"><%= link_to(new_food_path, class: 'nav-link') do %><i class="fas fa-plus-circle"></i> 食材追加<% end %></li>
             <li class="nav-item mr-3"><%= link_to(user_path(current_user), class: 'nav-link') do %><i class="fas fa-user"></i> 家族情報<% end %></li>
           <% end %>
@@ -18,7 +18,11 @@
           <li class="nav-item"><%= link_to(logout_path, method: :delete, class: 'nav-link') do %><i class="fas fa-sign-out-alt"></i> ログアウト<% end %></li>
         </ul>
         
+    <% else %>
+      
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-3"><%= link_to(login_path, class: 'nav-link') do %><i class="fas fa-sign-in-alt"></i> ログイン<% end %></li>
+    <% end %>    
       </div>
     </nav>
   </header>
-<% end %>

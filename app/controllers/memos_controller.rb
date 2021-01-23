@@ -8,18 +8,18 @@ class MemosController < ApplicationController
 #    @foods = current_family.foods.order(purchase_date: :asc)
     if @memo.save
   #    flash[:success] = 'メモしました'
-      redirect_to root_path
+      redirect_to foods_path
     else
       @memos = current_family.memos.order(id: :desc)
       flash[:warning] = 'メモできませんでした'
-      redirect_to root_path
+      redirect_to foods_path
     end
     
   end
 
   def destroy
     @memo.destroy
-    redirect_to root_path
+    redirect_to foods_path
   end
 end
 
