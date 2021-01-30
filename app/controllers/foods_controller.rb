@@ -37,6 +37,37 @@ class FoodsController < ApplicationController
     flash[:success] = @food.name + ' を使い切りました'
     redirect_to foods_path
   end
+  
+  def meats
+    @foods = current_family.foods
+    @meats = @foods.where(category: 1).order(purchase_date: :asc)
+    @memos = current_family.memos.order(id: :desc)
+    @memo = current_user.memos.build
+  end
+  
+  def veges
+    @foods = current_family.foods
+    @veges = @foods.where(category: 2).order(purchase_date: :asc)
+    @memos = current_family.memos.order(id: :desc)
+    @memo = current_user.memos.build
+
+  end
+  
+  def drinks
+    @foods = current_family.foods
+    @drinks = @foods.where(category: 3).order(purchase_date: :asc)
+    @memos = current_family.memos.order(id: :desc)
+    @memo = current_user.memos.build
+
+  end
+  
+  def others
+    @foods = current_family.foods
+    @others = @foods.where(category: 4).order(purchase_date: :asc)
+    @memos = current_family.memos.order(id: :desc)
+    @memo = current_user.memos.build
+
+  end
 end
 
 private

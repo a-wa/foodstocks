@@ -22,7 +22,15 @@ Rails.application.routes.draw do
     resources :families, only: [:new, :create]
     resources :requests, only: [:new, :create, :update, :destroy]
     
-    resources :foods
+    resources :foods do
+      collection do
+        get :meats
+        get :veges
+        get :drinks
+        get :others
+      end
+    end
+      
     
     resources :memos, only: [:create, :destroy]
     
