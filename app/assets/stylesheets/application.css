@@ -24,9 +24,7 @@ footer{
 
 #contact{
     color: #333;
-    
 }
-
 #contact:hover {
     text-decoration: none;
     color: #777;
@@ -34,11 +32,17 @@ footer{
 
 /*foods*/
 .foods-tab{
-    color: #6a6;
+    color: #494949;
+}
+.foods-tab:hover {
+    color: #666;
 }
 
-.foods-tab:hover {
-    color: #585;
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+        color: #494949;
+        background-color: white;
+        border-bottom: solid 8px #f1ae04;
+        border-radius: 0px;
 }
 
 /*button */
@@ -71,11 +75,6 @@ footer{
     letter-spacing:3px;
 }
 
-.marker {
-    border-bottom: dashed 2px #f1ae04;
-    padding: 5px;
- 
-}
 
 .heading{
     padding: 0.1em 0.4em;/*文字周りの余白*/

@@ -2,9 +2,9 @@
   <div class="row">
     
     <div id="foods" class="col-md-9 mb-5 pr-md-5">
-      <h4 class="mb-3 letter-wide"><span class="marker">食材一覧</span><span class="ml-5 small"><%= link_to(new_food_path, class: "btn btn-green")do %><i class="fas fa-plus"></i> 追加<% end %></span></h4>
+      <h4 class="mb-3 letter-wide">食材一覧<span class="ml-5 small"><%= link_to(new_food_path, class: "btn btn-green")do %><i class="fas fa-plus"></i> 追加<% end %></span></h4>
       <%#= render "foods_tab", foods: @foods %>
-      <ul class="nav nav-tabs nav-justified mb-2">
+      <ul class="nav nav-pills nav-justified mb-2">
         <li class="nav-item"><a href="#all" class="nav-link active foods-tab" data-toggle="tab"><i class="fas fa-utensils fa-lg"></i><br><span class="small">全て</span></a></li>
         <li class="nav-item"><a href="#meats" class="nav-link foods-tab" data-toggle="tab"><i class="fas fa-fish fa-rotate-180 fa-lg"></i><br><span class="small d-none d-sm-inline">肉・魚</span><span class="d-sm-none small">肉類</span></a></li>
         <li class="nav-item"><a href="#veges" class="nav-link foods-tab" data-toggle="tab"><i class="fas fa-carrot fa-lg"></i><br><span class="small d-none d-sm-inline">野菜・果物</span><span class="d-sm-none small">野菜</span></a></li>

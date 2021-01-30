@@ -31,14 +31,18 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = current_user.update(user_params)
-    if current_user.family_id == nil
-      current_user.requests.destroy_all
-      flash[:success] = '家族から抜けました'
+    if @user = current_user.update(user_params)
+      if current_user.family_id == nil
+        current_user.requests.destroy_all
+        flash[:success] = '家族から抜けました'
+      else
+        flash[:success] = 'ユーザ情報を編集しました'     
+      end
+      redirect_to edit_user_path
     else
-      flash[:success] = 'ユーザ情報を編集しました'     
+      flash[:danger] = 'ユーザ情報を編集できませんでした'
+      redirect_to edit_user_path
     end
-    redirect_to edit_user_path
   end
   
   def password_edit
@@ -66,7 +70,7 @@ class UsersController < ApplicationController
   
   
   def user_params
-    params.fetch(:user, {}).permit(:name, :email, :password, :password_confirmation, :image, :family_id, :old_password)
+    params.fetch(:user, {}).permit(:name, :email, :password, :password_confirmation, :image, :family_id)
   end
   
   def correct_user
