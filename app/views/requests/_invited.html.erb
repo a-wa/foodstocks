@@ -2,7 +2,7 @@
   <ul class="list-unstyled">
     <% requests.each do |request| %>
       <li>
-        <div class ='alert alert-success'>
+        <div class ='alert alert-warning'>
           <p><i class="far fa-envelope-open"></i> 招待リクエストが来ています！</p>
           <p>家族： <%= host_family(request) %>
           <br>招待者： <%= host_name(request) %>　さん</p>
@@ -11,14 +11,14 @@
             <%= form_with(model: request, local: true) do |f| %>
               <%= hidden_field_tag :status, 2 %>
               <%= hidden_field_tag :id, request.id %>
-              <%= f.submit '承認' ,class: 'btn btn-success col' %>
+              <%= f.submit '承認' ,class: 'btn btn-orange col letter-wide' %>
             <% end %>
             </div>
             <div class="col">
             <%= form_with(model: request, local: true) do |f| %>
               <%= hidden_field_tag :status, 3 %>
               <%= hidden_field_tag :id, request.id %>
-              <%= f.submit '拒否', class: 'btn btn-secondary col' %>
+              <%= f.submit '拒否', class: 'btn btn-secondary col letter-wide' %>
             <% end %>
             </div>
           </div>
@@ -29,5 +29,5 @@
     <p class="small"><i class="fas fa-exclamation-triangle text-danger"></i> リクエストが複数来ている場合、ひとつしか承認できません</p>
   </ul>
 <% else %>
-  <div class='alert alert-warning'>リクエストが届くのをお待ちください</div>
+  <div class='alert alert-secondary'>リクエストが届くのをお待ちください</div>
 <% end %>

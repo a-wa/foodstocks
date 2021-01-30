@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       member do
         get :password_edit
        # put :password_update
-        #patch :password_update
+      #  patch :password_update
       end
     end
     

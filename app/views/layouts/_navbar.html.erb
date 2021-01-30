@@ -12,6 +12,8 @@
             <li class="nav-item mr-3"><%= link_to(foods_path, class: 'nav-link') do %><i class="fas fa-utensils"></i> 食材一覧<% end %></li>
             <li class="nav-item mr-3"><%= link_to(new_food_path, class: 'nav-link') do %><i class="fas fa-plus-circle"></i> 食材追加<% end %></li>
             <li class="nav-item mr-3"><%= link_to(user_path(current_user), class: 'nav-link') do %><i class="fas fa-user"></i> 家族情報<% end %></li>
+          <% else %>
+            <li class="nav-item mr-3"><%= link_to(user_path(current_user), class: 'nav-link') do %><i class="fas fa-user"></i> 家族情報<% end %></li>
           <% end %>
         </ul>
         <ul class="navbar-nav ml-auto">

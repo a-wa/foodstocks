@@ -2,7 +2,7 @@
 
   <div class="mb-4 mt-4 text-center">
     <img class="mb-3" src="/assets/tabemo_logo_a.png" width=180>
-    <h4>ユーザ登録</h4>
+    <h4 class="letter-wide">ユーザ登録</h4>
   </div>
   
   <div class="row justify-content-center">
@@ -31,10 +31,10 @@
           <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
   
-        <%= f.submit '登録', class: 'btn btn-success btn-block' %>
+        <%= f.submit '登録', class: 'btn btn-orange btn-block letter-wide' %>
       <% end %>
       
-      <div class="mt-3">
+      <div class="mt-3 mb-5">
         <p>登録済みの方は <%= link_to 'ログイン', login_path %></p>
       </div>
   

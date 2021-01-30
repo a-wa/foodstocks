@@ -76,14 +76,14 @@ class UsersController < ApplicationController
     end
   end
   
-  def correct_password(password)
-    @user = User.find(params[:id])
-    if @user && @user.authenticate(password)
-      return true
-    else
-      return false
-    end
-  end
+  #def correct_password(password)
+  #  @user = User.find(params[:id])
+  #  if @user && @user.authenticate(password)
+  #    return true
+  #  else
+  #    return false
+  #  end
+  #end
   
 
   

@@ -8,7 +8,7 @@
           <li class="mt-2 border-bottom row">
             <%= guest.email %>
             
-            <div class="ml-auto"><span class="small"><%= host.name %> </span><%= link_to "取り消す", request, method: :delete, class: 'btn btn-outline-danger btn-sm' %></div>
+            <div class="ml-auto"><span class="small"><%= host.name %> </span><%= link_to(request, method: :delete, class: 'btn-sm',data: {confirm: 'リクエストを取り消します' } )do %><i class="fas fa-times-circle fa-lg text-danger"></i><% end %></div>
           </li>
         <% end %>
         
